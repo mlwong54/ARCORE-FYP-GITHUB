@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: cece9167ca2789f419368774c9996c0c
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 5a8af1b1f2fb8df4e8c006c1479d7b72
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 83178c9399762d543a2a6754ae3e7cce
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 29415acc80638214abb525d4765fd57d,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7945220fc230f7846bf471f736b624be,
+      type: 2}

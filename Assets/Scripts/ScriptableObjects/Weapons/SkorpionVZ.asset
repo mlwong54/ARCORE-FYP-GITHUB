@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4f870023c81d043bad25d301482e75, type: 3}
+  m_Name: SkorpionVZ
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 1188267176801276760, guid: b753bcd222471704d81b0b36cd4a3bcc,
+    type: 3}
+  weaponName: SkorpionVZ
+  description: 
+  WeaponType: 0
+  weaponBullet: {fileID: 7237066254173685193, guid: 8272afc3512dfe04cb34984c1791710d,
+    type: 3}
+  GunMagazine: 150
+  GunAmmo: 30
+  Fire: {fileID: 8300000, guid: 8210581cb073852419f7bc03abc69d73, type: 3}
+  Empty: {fileID: 8300000, guid: 86e63fff8b66584439708b42f3a4b9cd, type: 3}
+  Reload: {fileID: 8300000, guid: cc7fd9815a64a5c4ba6b3b057db03713, type: 3}

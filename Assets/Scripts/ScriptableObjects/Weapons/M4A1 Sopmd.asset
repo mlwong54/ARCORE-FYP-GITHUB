@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4f870023c81d043bad25d301482e75, type: 3}
+  m_Name: M4A1 Sopmd
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 8625671802360630140, guid: 825f2c7cd2dd2bd42a7c806d72e058d0,
+    type: 3}
+  weaponName: M4A1 Sopmod
+  description: A small rifle
+  WeaponType: 0
+  weaponBullet: {fileID: 7237066254173685193, guid: 8272afc3512dfe04cb34984c1791710d,
+    type: 3}
+  GunMagazine: 120
+  GunAmmo: 25
+  Fire: {fileID: 8300000, guid: 6b2b726ec94eb3446be42271c7466dc1, type: 3}
+  Empty: {fileID: 8300000, guid: 86e63fff8b66584439708b42f3a4b9cd, type: 3}
+  Reload: {fileID: 8300000, guid: 4a3ad62d05d65114595623bcc78f45d4, type: 3}
