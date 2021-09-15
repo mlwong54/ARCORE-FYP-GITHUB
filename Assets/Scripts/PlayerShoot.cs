@@ -60,7 +60,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void InstantiateGun()
     {
-        Instantiate(gunsIHave[currentGun].weaponPrefab, GunSpawnPoint.transform.position, Quaternion.identity, GunSpawnPoint.transform);
+        Instantiate(gunsIHave[currentGun].weaponPrefab, GunSpawnPoint.transform.position, GunSpawnPoint.transform.rotation, GunSpawnPoint.transform);
     }
 
     public void DestroyGun()

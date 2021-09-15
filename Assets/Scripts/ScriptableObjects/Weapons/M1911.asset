@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4f870023c81d043bad25d301482e75, type: 3}
+  m_Name: M1911
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 1350591030179694, guid: 8bd7215dd6c525f478292cbc530ac5e8,
+    type: 3}
+  weaponName: M1911
+  description: Pistol
+  WeaponType: 2
+  weaponBullet: {fileID: 7237066254173685193, guid: e6a41303af5666a44aff554ed111208b,
+    type: 3}
+  GunMagazine: 90
+  GunAmmo: 15
+  Fire: {fileID: 8300000, guid: d7689f2d1f9fe774c8a2107fc5582aa2, type: 3}
+  Empty: {fileID: 8300000, guid: 86e63fff8b66584439708b42f3a4b9cd, type: 3}
+  Reload: {fileID: 8300000, guid: 642d1d4b5275b604ba1b6e388ed240db, type: 3}

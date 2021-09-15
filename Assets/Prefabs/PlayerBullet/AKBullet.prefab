@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 1000000
-  bulletDamage: 40
+  bulletDamage: 60
   AddHealthEvent: {fileID: 11400000, guid: 69db162f491fa46448b0ade2fa9e3394, type: 2}
   AddAmmoEvent: {fileID: 11400000, guid: e23d60c3374d39e4282f522b2073677e, type: 2}
   PlayBonusSound: {fileID: 11400000, guid: 79e87898faa686d428afdd491296c360, type: 2}
