@@ -37,6 +37,7 @@ public class PlayerShoot : MonoBehaviour
         gunsIHave.Add(gunsInventory.primaryWeapon);
         gunsIHave.Add(gunsInventory.secondaryWeapon);
         InstantiateGun();
+        SwitchGunInventory();
     }
 
     public void SwitchGunInventory()
