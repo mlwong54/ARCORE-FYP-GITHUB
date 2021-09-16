@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cebc1eca985c39479cc39fc5d1b3531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 5
+  bulletDamage: 10
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 0

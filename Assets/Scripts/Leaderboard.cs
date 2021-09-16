@@ -14,12 +14,27 @@ public class Leaderboard : MonoBehaviour
     void Start()
     {
         ts = textBundle.GetComponentsInChildren<TextMeshProUGUI>();
+        List<int> list1 = new List<int>(scores.allScores);
+        list1.Sort();
+        list1.Reverse();
         foreach (TextMeshProUGUI child in ts)
         {
-            child.text = (scores.allScores[i]).ToString();
-            i++;
+            child.text = list1[i].ToString();
+            scores.allScores[i]= list1[i];
+            i++; 
+        }
+        RemoveOutOfRange();
+    }
+
+    void RemoveOutOfRange()
+    {
+        if(scores.allScores.Count.Equals(9))
+        {
+            Debug.Log("detects 9th element!");
+            scores.allScores.RemoveAt(8);
         }
     }
+
 
     public void Back()
     {

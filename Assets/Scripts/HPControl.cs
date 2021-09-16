@@ -20,7 +20,7 @@ public class HPControl : MonoBehaviour
     private Gradient gradient;
     [SerializeField]
     private Image fill;
-    private float addValue = 150;
+    private float addValue = 70;
 
     [SerializeField]
     private TimerScoreControl scoreControl;
@@ -48,9 +48,9 @@ public class HPControl : MonoBehaviour
     public void SetPositiveHealth(float add, float baseHealth)
     {
         healthBar.value = baseHealth + add;
-        if (healthBar.value >= 500)
+        if (healthBar.value >= 300)
         {
-            healthBar.value = 500;
+            healthBar.value = 300;
         }
         fill.color = gradient.Evaluate(healthBar.normalizedValue);
     }
@@ -73,12 +73,12 @@ public class HPControl : MonoBehaviour
 
     public void AddHealth()
     {
-        if (playerHP.runtimeValue >= 500)
+        if (playerHP.runtimeValue >= 300)
         {
-            playerHP.runtimeValue = 500;
+            playerHP.runtimeValue = 300;
             Debug.Log("full health !");
         }
-        else if (playerHP.runtimeValue < 500)
+        else if (playerHP.runtimeValue < 300)
         {
             playerHP.runtimeValue = playerHP.runtimeValue + addValue;
             Debug.Log("received health :" + addValue);

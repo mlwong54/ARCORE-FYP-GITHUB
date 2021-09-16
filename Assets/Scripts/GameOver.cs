@@ -22,15 +22,12 @@ public class GameOver : MonoBehaviour
         scoreDisplay.text = PlayerPrefs.GetInt("RoundScores").ToString();
     }
 
-    void ManageListScore()
+    public void ManageListScore()
     {
-        if(listScores.allScores.Count<10)
+        //if(listScores.allScores.Count<10)
         {
             listScores.allScores.Add(PlayerPrefs.GetInt("RoundScores"));
-        }
-        else
-        {
-            listScores.allScores.Remove(0);
+            Debug.Log("added Leaderboard score!");
         }
     }
 
