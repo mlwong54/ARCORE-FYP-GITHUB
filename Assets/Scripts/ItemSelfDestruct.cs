@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ItemSelfDestruct : MonoBehaviour
 {
+    [SerializeField]
+    private float delayTime;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, delayTime);
     }
 
 }

@@ -34,22 +34,16 @@ public class BulletBehaviour : MonoBehaviour
 		if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, ~ignoreLayer))
 		{
 
-				/*if (hit.transform.tag == "Box")
-				{
-					Instantiate(decalHitWall, hit.point + hit.normal * floatInfrontOfWall, Quaternion.LookRotation(hit.normal));
-					Destroy(gameObject);
-				}*/
 				if (hit.transform.tag == "Enemy")
 				{
 					Debug.Log("hit enemy!");
-					hit.transform.gameObject.GetComponent<EnemyBehaviour>().Damage(bulletDamage);
-					//Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					hit.transform.gameObject.GetComponent<EnemyBehaviour>().Damage(bulletDamage);	
 					Destroy(gameObject);
 				}
 				if(hit.transform.tag == "BonusHealth")
 				{
 					Debug.Log("Add health!");
-					//Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					AddHealthEvent.Raise();
 					PlayBonusSound.Raise();
 					Destroy(hit.transform.gameObject);
@@ -58,7 +52,7 @@ public class BulletBehaviour : MonoBehaviour
 				if (hit.transform.tag == "BonusAmmo")
 				{
 					Debug.Log("Add ammo!");
-					//Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					AddAmmoEvent.Raise();
 					PlayBonusSound.Raise();
 					Destroy(hit.transform.gameObject);

@@ -11,7 +11,7 @@ public class Leaderboard : MonoBehaviour
     public GameObject textBundle;
     public TextMeshProUGUI[] ts;
     private int i = 0;
-    void Start()
+    void Awake()
     {
         ts = textBundle.GetComponentsInChildren<TextMeshProUGUI>();
         List<int> list1 = new List<int>(scores.allScores);
@@ -34,8 +34,6 @@ public class Leaderboard : MonoBehaviour
             scores.allScores.RemoveAt(8);
         }
     }
-
-
     public void Back()
     {
         SceneManager.LoadScene(0);

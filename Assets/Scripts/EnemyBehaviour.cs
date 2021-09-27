@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     public IntegerValue overallScores;
     public Transform PlayerTarget;
     public EnemyShoot ownShoot;
+    public GameObject explosionEffect;
 
     public VoidEvent AddScore;
 
@@ -29,6 +30,7 @@ public class EnemyBehaviour : MonoBehaviour
         transform.LookAt(PlayerTarget);
         if (currentHP <= 0f)
         {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
             updateScore();
             Destroy(gameObject);
         }
@@ -36,7 +38,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void updateScore()
     {
-        Debug.Log("Updated score!");
         AddScore.Raise();
     }
 }

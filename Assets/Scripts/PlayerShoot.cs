@@ -18,8 +18,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     private AudioSource audioListener;
     [SerializeField]
-    private AudioSource audioListener2;
-    [SerializeField]
     private AudioClip switchGun;
     [SerializeField]
     private AudioClip pain;
@@ -130,13 +128,11 @@ public class PlayerShoot : MonoBehaviour
 
     void PlayEmptySound()
     {
-        audioListener.clip = gunsIHave[currentGun].Empty;
-        audioListener.Play();
+        audioListener.PlayOneShot(gunsIHave[currentGun].Empty);
     }
     void PlayReloadSound()
     {
-        audioListener.clip = gunsIHave[currentGun].Reload;
-        audioListener.Play();
+        audioListener.PlayOneShot(gunsIHave[currentGun].Reload);
     }
     void PlayFireSound()
     {
@@ -146,19 +142,18 @@ public class PlayerShoot : MonoBehaviour
     
     void PlaySwitchSound()
     {
-        audioListener.clip = switchGun;
-        audioListener.Play();
+        audioListener.PlayOneShot(switchGun);
     }
 
     public void PlayPainSound()
     {
-        audioListener2.clip = pain;
-        audioListener2.Play();
+        //audioListener2.PlayOneShot(pain);
+        audioListener.PlayOneShot(pain);
     }
 
     public void PlayBonusSound()
     {
-        audioListener2.clip = Bonus;
-        audioListener2.Play();
+        //audioListener2.PlayOneShot(Bonus);
+        audioListener.PlayOneShot(Bonus);
     }
 }

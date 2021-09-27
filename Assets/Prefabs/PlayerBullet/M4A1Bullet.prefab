@@ -115,7 +115,8 @@ MonoBehaviour:
   PlayBonusSound: {fileID: 11400000, guid: 79e87898faa686d428afdd491296c360, type: 2}
   decalHitWall: {fileID: 0}
   floatInfrontOfWall: 0
-  muzzleEffect: {fileID: 0}
+  muzzleEffect: {fileID: 3123075737211501182, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
+    type: 3}
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 8

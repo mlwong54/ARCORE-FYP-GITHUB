@@ -10,6 +10,8 @@ public class HPControl : MonoBehaviour
     private VoidEvent gameOverEvent;
     [SerializeField]
     private VoidEvent painSound;
+    [SerializeField]
+    private VoidEvent painDamage;
     //[SerializeField]
     //private VoidEvent deathSound;
     [SerializeField]
@@ -20,7 +22,11 @@ public class HPControl : MonoBehaviour
     private Gradient gradient;
     [SerializeField]
     private Image fill;
+    [SerializeField]
+    private Image DamageBloodMaterial;
     private float addValue = 70;
+    private float damageDecrease = 0f;
+    private float damageRate = 0.3f;
 
     [SerializeField]
     private TimerScoreControl scoreControl;
@@ -60,6 +66,7 @@ public class HPControl : MonoBehaviour
         playerHP.runtimeValue = playerHP.runtimeValue - damageValue;
         Debug.Log("received damage :" + damageValue);
         SetNegativeHealth(damageValue, playerHP.runtimeValue);
+        painDamage.Raise();
         painSound.Raise();
         if (playerHP.runtimeValue < 0)
         {
@@ -83,6 +90,34 @@ public class HPControl : MonoBehaviour
             playerHP.runtimeValue = playerHP.runtimeValue + addValue;
             Debug.Log("received health :" + addValue);
             SetPositiveHealth(addValue, playerHP.runtimeValue);
+        }
+    }
+
+    public void DamageEffect()
+    {
+        var tempColor = DamageBloodMaterial.color;
+        damageDecrease = 0.7f;
+        tempColor.a = damageDecrease;
+        DamageBloodMaterial.color = tempColor;
+    }
+
+    public void UpdateDamageEffect()
+    {
+        var tempColor = DamageBloodMaterial.color;
+        tempColor.a = damageDecrease;
+        DamageBloodMaterial.color = tempColor;
+    }
+
+    private void Update()
+    {
+        if(DamageBloodMaterial.color.a <=0)
+        {
+            return;
+        }
+        else
+        {
+            damageDecrease -= damageRate*Time.deltaTime;
+            UpdateDamageEffect();
         }
     }
 }

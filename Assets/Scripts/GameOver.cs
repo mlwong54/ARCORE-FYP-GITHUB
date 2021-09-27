@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
     private LeaderboardScores listScores;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         ManageListScore();
         DisplayScore();
@@ -24,11 +24,9 @@ public class GameOver : MonoBehaviour
 
     public void ManageListScore()
     {
-        //if(listScores.allScores.Count<10)
-        {
-            listScores.allScores.Add(PlayerPrefs.GetInt("RoundScores"));
-            Debug.Log("added Leaderboard score!");
-        }
+
+        listScores.allScores.Add(PlayerPrefs.GetInt("RoundScores"));
+        Debug.Log("added Leaderboard score!");
     }
 
     public void Replay()
