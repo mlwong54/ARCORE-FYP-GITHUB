@@ -74,7 +74,6 @@ public class HPControl : MonoBehaviour
             Destroy(gameObject, 0.2f);
             scoreControl.SaveScore();
             gameOverEvent.Raise();
-            //deathSound.Raise();
         }
     }
 

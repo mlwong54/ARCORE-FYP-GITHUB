@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void StartGame()
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void WeaponSelection()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void EndGame()
+    public void StartGame()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(3);
     }
 }

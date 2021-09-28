@@ -24,18 +24,23 @@ public class GameOver : MonoBehaviour
 
     public void ManageListScore()
     {
-
-        listScores.allScores.Add(PlayerPrefs.GetInt("RoundScores"));
+        int newscore=PlayerPrefs.GetInt("RoundScores");
+        listScores.allScores.Add(newscore);
         Debug.Log("added Leaderboard score!");
     }
 
     public void Replay()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Menu()
     {
         SceneManager.LoadScene(0);
     }
 
     public void viewLeaderboard()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }

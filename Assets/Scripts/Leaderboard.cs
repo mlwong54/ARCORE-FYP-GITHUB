@@ -36,7 +36,12 @@ public class Leaderboard : MonoBehaviour
     }
     public void Back()
     {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Menu()
+    {
         SceneManager.LoadScene(0);
     }
-    
+
 }
