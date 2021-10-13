@@ -14,15 +14,19 @@ public class EnemyBehaviour : MonoBehaviour
     public VoidEvent AddScore;
 
     private void Awake() {
-        currentHP= data.enemyHealth;
+        currentHP = data.enemyHealth;
         PlayerTarget = GameObject.FindWithTag("Player").GetComponent<Transform>();
         ownShoot = GetComponent<EnemyShoot>();
+    }
+
+    private void OnDisable()
+    {
+        currentHP = data.enemyHealth;
     }
 
     public void Damage(float damageValue)
     {
         currentHP= currentHP - damageValue;
-        Debug.Log(currentHP);
     }
 
     public void Update()
@@ -31,8 +35,10 @@ public class EnemyBehaviour : MonoBehaviour
         if (currentHP <= 0f)
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);
+            ownShoot.enabled = false;
             updateScore();
-            Destroy(gameObject);
+            TimerScoreControl.Instance.ReturnToPool(gameObject);
+            this.enabled = false;
         }
     }
 

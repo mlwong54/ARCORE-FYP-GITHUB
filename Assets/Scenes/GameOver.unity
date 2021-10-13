@@ -1743,8 +1743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bfd399a47484c49a489ef88ffe59eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filename: scoreboard.json
   scoreDisplay: {fileID: 1592542511}
-  listScores: {fileID: 11400000, guid: 519e82343f2ffa34086f9074fb902994, type: 2}
 --- !u!4 &1812105703
 Transform:
   m_ObjectHideFlags: 0

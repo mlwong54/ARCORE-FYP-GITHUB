@@ -18,11 +18,6 @@ public class BulletBehaviour : MonoBehaviour
 	[SerializeField]
 	private VoidEvent PlayBonusSound;
 
-
-	[Tooltip("Prefab of wall damange hit. The object needs 'LevelPart' tag to create decal on it.")]
-	public GameObject decalHitWall;
-	[Tooltip("Decal will need to be sligtly infront of the wall so it doesnt cause rendeing problems so for best feel put from 0.01-0.1.")]
-	public float floatInfrontOfWall;
 	[Tooltip("Blood prefab particle this bullet will create upoon hitting enemy")]
 	public GameObject muzzleEffect;
 	[Tooltip("Put Weapon layer and Player layer to ignore bullet raycast.")]
@@ -46,7 +41,7 @@ public class BulletBehaviour : MonoBehaviour
 					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					AddHealthEvent.Raise();
 					PlayBonusSound.Raise();
-					Destroy(hit.transform.gameObject);
+					TimerScoreControl.Instance.ReturnToPool(hit.transform.gameObject);
 					Destroy(gameObject);
 				}
 				if (hit.transform.tag == "BonusAmmo")
@@ -55,7 +50,7 @@ public class BulletBehaviour : MonoBehaviour
 					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					AddAmmoEvent.Raise();
 					PlayBonusSound.Raise();
-					Destroy(hit.transform.gameObject);
+					TimerScoreControl.Instance.ReturnToPool(hit.transform.gameObject);
 					Destroy(gameObject);
 				}
 		}

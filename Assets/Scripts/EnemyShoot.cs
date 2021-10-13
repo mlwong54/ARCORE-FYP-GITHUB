@@ -9,11 +9,26 @@ public class EnemyShoot : MonoBehaviour
     private GameObject bullet;
     [SerializeField]
     private AudioSource shootingSound;
-    // Update is called once per frame
+
     public void Start()
     {
         bullet = data.enemyWeapon;
+        DoStuff();
+    }
+    public void onEnable()
+    {
+        DoStuff();
+    }
+
+    void DoStuff()
+    {
         StartCoroutine(SpawnInterval());
+        Debug.Log("Start shoot");
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
     IEnumerator SpawnInterval()
     {

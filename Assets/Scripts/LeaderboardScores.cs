@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ListScores", menuName = "Legacy Scriptable Objects/ListScores", order = 1)]
-public class LeaderboardScores : ScriptableObject
+[System.Serializable]
+public class LeaderboardScores
 {
     public List<int> allScores;
 }

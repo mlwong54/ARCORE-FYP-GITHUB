@@ -24,7 +24,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     private AudioClip Bonus;
 
-
     public List<WeaponDescription> gunsIHave;
 
     private bool gunSwitcher = false;
@@ -44,27 +43,37 @@ public class PlayerShoot : MonoBehaviour
         {
             currentGun = 0;
             gunSwitcher = !gunSwitcher;
-            DestroyGun();
-            InstantiateGun();
+            ToNextGun(1);
         }
         else
         {
             currentGun = 1;
             gunSwitcher = !gunSwitcher;
-            DestroyGun();
-            InstantiateGun();
+            ToNextGun(0);
         }
         PlaySwitchSound();
     }
 
     public void InstantiateGun()
     {
-        Instantiate(gunsIHave[currentGun].weaponPrefab, GunSpawnPoint.transform.position, GunSpawnPoint.transform.rotation, GunSpawnPoint.transform);
+        for(int i= 0; i<2; i++)
+        {
+            var gun=Instantiate(gunsIHave[i].weaponPrefab, GunSpawnPoint.transform.position, GunSpawnPoint.transform.rotation, GunSpawnPoint.transform);
+            if(i==0)
+            {
+                gun.SetActive(true);
+            }
+            else
+            {
+                gun.SetActive(false);
+            }
+        }
     }
 
-    public void DestroyGun()
+    public void ToNextGun(int num)
     {
-        Destroy(GunSpawnPoint.transform.GetChild(0).gameObject);
+        GunSpawnPoint.transform.GetChild(num).gameObject.SetActive(false);
+        GunSpawnPoint.transform.GetChild(currentGun).gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -85,38 +94,38 @@ public class PlayerShoot : MonoBehaviour
         if (gunsIHave[currentGun].runtimeAmmo == 0 && gunsIHave[currentGun].runtimeMagazine != 0)
         {
             PlayEmptySound();
-            Reload(); }
+            Reload(); 
+        }
     }
 
     public void Reload()
     {
-            
-            int difference = gunsIHave[currentGun].GunAmmo - gunsIHave[currentGun].runtimeAmmo;
+        int difference = gunsIHave[currentGun].GunAmmo - gunsIHave[currentGun].runtimeAmmo;
 
-            if (difference == 0 && gunsIHave[currentGun].runtimeMagazine != 0)
+        if (difference == 0 && gunsIHave[currentGun].runtimeMagazine != 0)
+        {
+            PlayEmptySound();
+            return;
+        }
+        else if (difference > 0 && gunsIHave[currentGun].runtimeMagazine != 0)
+        {
+            if (gunsIHave[currentGun].runtimeMagazine >= gunsIHave[currentGun].GunAmmo)
             {
-                PlayEmptySound();
-                return;
+                gunsIHave[currentGun].runtimeAmmo += difference;
+                gunsIHave[currentGun].runtimeMagazine -= difference;
             }
-            else if (difference > 0 && gunsIHave[currentGun].runtimeMagazine != 0)
+            else if (gunsIHave[currentGun].runtimeMagazine < gunsIHave[currentGun].GunAmmo)
             {
-                if (gunsIHave[currentGun].runtimeMagazine >= gunsIHave[currentGun].GunAmmo)
-                {
-                    gunsIHave[currentGun].runtimeAmmo += difference;
-                    gunsIHave[currentGun].runtimeMagazine -= difference;
-                }
-                else if (gunsIHave[currentGun].runtimeMagazine < gunsIHave[currentGun].GunAmmo)
-                {
-                    gunsIHave[currentGun].runtimeAmmo += difference;
-                    if ((gunsIHave[currentGun].runtimeMagazine -= difference) <= 0)
-                    {
-                        gunsIHave[currentGun].runtimeMagazine = 0;
-                    }
-                    else
-                    {
-                        gunsIHave[currentGun].runtimeMagazine -= difference;
-                    }
-                }
+                 gunsIHave[currentGun].runtimeAmmo += difference;
+                 if ((gunsIHave[currentGun].runtimeMagazine -= difference) <= 0)
+                 {
+                     gunsIHave[currentGun].runtimeMagazine = 0;
+                 }
+                 else
+                 {
+                     gunsIHave[currentGun].runtimeMagazine -= difference;
+                 }
+            }
             PlayReloadSound();
         }
     }
@@ -147,13 +156,11 @@ public class PlayerShoot : MonoBehaviour
 
     public void PlayPainSound()
     {
-        //audioListener2.PlayOneShot(pain);
         audioListener.PlayOneShot(pain);
     }
 
     public void PlayBonusSound()
     {
-        //audioListener2.PlayOneShot(Bonus);
         audioListener.PlayOneShot(Bonus);
     }
 }

@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    [SerializeField] string filename;
+
+    List<SavingData> entries = new List<SavingData>();
     public TextMeshProUGUI scoreDisplay;
-    [SerializeField]
-    private LeaderboardScores listScores;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
+        entries = FileHandler.ReadFromJSON<SavingData>(filename);
         ManageListScore();
         DisplayScore();
     }
@@ -25,8 +28,9 @@ public class GameOver : MonoBehaviour
     public void ManageListScore()
     {
         int newscore=PlayerPrefs.GetInt("RoundScores");
-        listScores.allScores.Add(newscore);
-        Debug.Log("added Leaderboard score!");
+        entries.Add(new SavingData(newscore));
+        FileHandler.SaveToJSON<SavingData>(entries, filename);
+        //_LeaderboardData.allScores.Add(newscore);
     }
 
     public void Replay()

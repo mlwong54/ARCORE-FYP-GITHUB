@@ -23,7 +23,6 @@ public class EnemyBullet : MonoBehaviour
 
     private void Start()
     {
-		//sound = GetComponent<AudioSource>();
 		HoriRandomShoot = Random.Range(0.1f, 1.0f);
 		VertiRandomShoot = Random.Range(0.0f, 0.5f);
 		if (HoriRandomShoot > 1.0f - HitAccuracy)
@@ -34,14 +33,12 @@ public class EnemyBullet : MonoBehaviour
         {
 			VertiRandomShoot = 0.0f;
         }
-		//sound.Play();
 	}
     void Update()
 	{
 		movingAngle = transform.forward + new Vector3(HoriRandomShoot, VertiRandomShoot,0);
 		transform.position += movingAngle * Time.deltaTime * speed;
 
-		Debug.DrawRay(transform.position, movingAngle, Color.green);
 		if (Physics.Raycast(transform.position, movingAngle, out hit, maxDistance, ~ignoreLayer))
 		{
 			if (hit.transform.tag == "Player")

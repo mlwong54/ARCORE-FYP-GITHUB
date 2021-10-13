@@ -15,6 +15,10 @@ public class TimerScoreControl : MonoBehaviour
 
     public GameObject spawnAtLocationObject;
 
+    private Queue<GameObject> spawnQueue = new Queue<GameObject>();
+
+    public static TimerScoreControl Instance { get; private set; }
+
     [SerializeField]
     private VoidEvent DeathEvent;
     [SerializeField]
@@ -27,7 +31,34 @@ public class TimerScoreControl : MonoBehaviour
     {
         scores = 0;
         SaveScore();
+        Instance = this;
     }
+
+    public GameObject GetSpawnObject()
+    {
+        if(spawnQueue.Count == 0)
+        {
+            AddSpawns(20);
+        }
+        return spawnQueue.Dequeue();
+    }
+
+    private void AddSpawns(int count)
+    {
+        for(int i = 0; i <count;i++)
+        {
+            GameObject spawned = Instantiate(enemyObject[Random.Range(0, enemyObject.Count)], new Vector3(0, 1, 0), Quaternion.identity, spawnAtLocationObject.transform);
+            spawned.SetActive(false);
+            spawnQueue.Enqueue(spawned);
+        }
+    }
+
+    public void ReturnToPool(GameObject spawned)
+    {
+        spawned.SetActive(false);
+        spawnQueue.Enqueue(spawned);
+    }
+
 
     public void SaveScore()
     {
@@ -46,7 +77,9 @@ public class TimerScoreControl : MonoBehaviour
         while (true)
         {
             //Spawn a Unit Here
-            Instantiate(enemyObject[Random.Range(0, enemyObject.Count)], new Vector3(Random.Range(-10,10), 1, Random.Range(-10, 10)), Quaternion.identity, spawnAtLocationObject.transform);
+            var enemy = GetSpawnObject();
+            enemy.transform.position = new Vector3(Random.Range(0,10),1 , Random.Range(0, 10));
+            enemy.SetActive(true);
             //And now we wait
             yield return new WaitForSeconds(interval);
         }
@@ -55,7 +88,6 @@ public class TimerScoreControl : MonoBehaviour
     IEnumerator SpawnWaiting(int interval)
     {
         yield return new WaitForSeconds(interval);
-        Debug.Log("Waiting finished!");
         StartCoroutine(SpawnUnitInIntervals(2));
     }
     public void UpdateScore()
