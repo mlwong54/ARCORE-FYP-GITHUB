@@ -19,9 +19,10 @@ public class EnemyBehaviour : MonoBehaviour
         ownShoot = GetComponent<EnemyShoot>();
     }
 
-    private void OnDisable()
+    private void OnEnable()
     {
         currentHP = data.enemyHealth;
+        Debug.Log("Restore HP" + currentHP);
     }
 
     public void Damage(float damageValue)
@@ -35,10 +36,8 @@ public class EnemyBehaviour : MonoBehaviour
         if (currentHP <= 0f)
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);
-            ownShoot.enabled = false;
             updateScore();
             TimerScoreControl.Instance.ReturnToPool(gameObject);
-            this.enabled = false;
         }
     }
 

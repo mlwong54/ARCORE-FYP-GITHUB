@@ -4904,7 +4904,7 @@ GameObject:
   - component: {fileID: 3123075737211501168}
   - component: {fileID: 3123075737211501183}
   - component: {fileID: 299375855461149811}
-  - component: {fileID: -1736832436665914667}
+  - component: {fileID: -7366919392147255547}
   m_Layer: 0
   m_Name: CosmicReversal
   m_TagString: Untagged
@@ -9879,7 +9879,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-1736832436665914667
+--- !u!114 &-7366919392147255547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9888,10 +9888,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3123075737211501182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f57fef6be0257142b431f27af52006d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b18563c4c2dd0b40a5fe86090085904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 3
 --- !u!1 &3123075737462815356
 GameObject:
   m_ObjectHideFlags: 0

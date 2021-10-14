@@ -15,7 +15,7 @@ public class EnemyShoot : MonoBehaviour
         bullet = data.enemyWeapon;
         DoStuff();
     }
-    public void onEnable()
+    public void OnEnable()
     {
         DoStuff();
     }
@@ -23,16 +23,13 @@ public class EnemyShoot : MonoBehaviour
     void DoStuff()
     {
         StartCoroutine(SpawnInterval());
-        Debug.Log("Start shoot");
+
     }
 
-    private void OnDisable()
-    {
-        StopAllCoroutines();
-    }
     IEnumerator SpawnInterval()
     {
-        while(true)
+        Debug.Log("Started coroutine!");
+        while (true)
         {
             yield return new WaitForSeconds(1);
             Instantiate(bullet, transform.position, transform.rotation);

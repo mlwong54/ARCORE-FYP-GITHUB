@@ -37,20 +37,19 @@ public class BulletBehaviour : MonoBehaviour
 				}
 				if(hit.transform.tag == "BonusHealth")
 				{
-					Debug.Log("Add health!");
-					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					AddHealthEvent.Raise();
 					PlayBonusSound.Raise();
 					TimerScoreControl.Instance.ReturnToPool(hit.transform.gameObject);
+					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					Destroy(gameObject);
 				}
 				if (hit.transform.tag == "BonusAmmo")
 				{
-					Debug.Log("Add ammo!");
-					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
+					
 					AddAmmoEvent.Raise();
 					PlayBonusSound.Raise();
 					TimerScoreControl.Instance.ReturnToPool(hit.transform.gameObject);
+					Instantiate(muzzleEffect, hit.point, Quaternion.LookRotation(hit.normal));
 					Destroy(gameObject);
 				}
 		}

@@ -9,17 +9,13 @@ public class ItemSelfDestruct : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        StartCoroutine(WaitUntilDestroy(3));
+        Invoke("DestroySelf", delayTime);
+        //StartCoroutine(WaitUntilDestroy(3));
     }
 
-    private void OnDisable()
+    void DestroySelf()
     {
-        StopAllCoroutines();
-    }
-
-    IEnumerator WaitUntilDestroy(int interval)
-    {
-        yield return new WaitForSeconds(interval);
         TimerScoreControl.Instance.ReturnToPool(gameObject);
     }
+
 }

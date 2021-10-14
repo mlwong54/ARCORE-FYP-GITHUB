@@ -30,7 +30,6 @@ public class GameOver : MonoBehaviour
         int newscore=PlayerPrefs.GetInt("RoundScores");
         entries.Add(new SavingData(newscore));
         FileHandler.SaveToJSON<SavingData>(entries, filename);
-        //_LeaderboardData.allScores.Add(newscore);
     }
 
     public void Replay()

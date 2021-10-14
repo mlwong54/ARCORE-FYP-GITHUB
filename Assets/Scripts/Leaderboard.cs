@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class Leaderboard : MonoBehaviour
 {
-    
+    List<SavingData> result = new List<SavingData>();
     public GameObject textBundle;
     public TextMeshProUGUI[] ts;
     private int i = 0;
     void Awake()
     {
-        List<int> allScores = new List<int>(FileHandler.ReadFromJSON<int>("scoreboard.json"));
+        List<int> temp=new List<int>();
+        //List<int> allScores = new List<int>(FileHandler.ReadFromJSON<int>("scoreboard.json"));
+        result = FileHandler.FetchMarks("scoreboard.json");
         ts = textBundle.GetComponentsInChildren<TextMeshProUGUI>();
-
-        List<int> list1 = new List<int>(allScores);
-        list1.Sort();
-        list1.Reverse();
+        for(int i=0;i<result.ToArray().Count();i++)
+        {
+            temp.Add(result[i].points);
+        }
+        //List<int> list1 = new List<int>(allScores);
+        temp.Sort();
+        temp.Reverse();
         foreach (TextMeshProUGUI child in ts)
         {
-            child.text = list1[i].ToString();
-            allScores[i]= list1[i];
+            child.text = temp[i].ToString();
             i++; 
         }
         //RemoveOutOfRange();

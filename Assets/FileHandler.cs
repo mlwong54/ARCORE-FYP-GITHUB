@@ -25,7 +25,7 @@ public static class FileHandler
 
     }
 
-    public static List<int> FetchMarks(string filename)
+    public static List<SavingData> FetchMarks(string filename)
     {
         List<int> res = new List<int>();
         string content = ReadFile(GetPath(filename));
@@ -34,15 +34,15 @@ public static class FileHandler
             return null;
         }
         
-        SavingData[] exp = JsonHelper.FromJson<SavingData>(content);
-            for (int i = 0; i < exp.Length; i++)
+        List<SavingData> exp = JsonHelper.FromJson<SavingData>(content).ToList();
+            for (int i = 0; i < exp.ToArray().Count(); i++)
             {
-                res.Add(exp[i].points); //Shows the Listed marks
+                Debug.Log(exp[i].points); //Shows the Listed marks
             }
-        return res;
+        return exp;
     }
 
-    private static string GetPath(string filename)
+    public static string GetPath(string filename)
     {
         return Application.persistentDataPath + "/" + filename;
     }

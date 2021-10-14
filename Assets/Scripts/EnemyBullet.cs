@@ -8,8 +8,6 @@ public class EnemyBullet : MonoBehaviour
 	private float maxDistance = 1000000;
 	[SerializeField]
 	private float bulletDamage;
-	//public AudioSource sound;
-//	public AudioClip shotSound;
 	RaycastHit hit;
 	public LayerMask ignoreLayer;
 	private float HoriRandomShoot;

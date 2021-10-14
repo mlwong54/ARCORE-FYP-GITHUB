@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Leaderboard.unity
     guid: 83178c9399762d543a2a6754ae3e7cce
+  - enabled: 0
+    path: Assets/Scenes/DebugTest.unity
+    guid: c6f523b4cf825cb47bbcde9ee0f2c887
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 29415acc80638214abb525d4765fd57d,
       type: 2}

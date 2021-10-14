@@ -68,6 +68,7 @@ public class TimerScoreControl : MonoBehaviour
 
     private void Start()
     {
+        timer.OnAfterDeserialize();
         DisplayScore();
         StartCoroutine(SpawnWaiting(5));
     }
