@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameSystem.Events;
+using TMPro;
 
 public class HPControl : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class HPControl : MonoBehaviour
     private Image fill;
     [SerializeField]
     private Image DamageBloodMaterial;
+
     private float addValue = 70;
     private float damageDecrease = 0f;
     private float damageRate = 0.3f;
@@ -106,6 +108,7 @@ public class HPControl : MonoBehaviour
         tempColor.a = damageDecrease;
         DamageBloodMaterial.color = tempColor;
     }
+
 
     private void Update()
     {

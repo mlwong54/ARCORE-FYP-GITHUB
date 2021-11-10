@@ -8,6 +8,7 @@ TagManager:
   - BonusHealth
   - BonusAmmo
   - Console
+  - Platform
   layers:
   - Default
   - TransparentFX

@@ -25,7 +25,12 @@ public class TimerScoreControl : MonoBehaviour
     private FloatValue timer;
     [SerializeField]
     private IntegerValue thisRoundScore;
+    [SerializeField]
+    private TextMeshProUGUI bonusText;
     private int scores;
+
+    private float damageDecrease = 0f;
+    private float damageRate = 0.6f;
 
     public void Awake()
     {
@@ -79,7 +84,14 @@ public class TimerScoreControl : MonoBehaviour
         {
             //Spawn a Unit Here
             var enemy = GetSpawnObject();
-            enemy.transform.position = new Vector3(Random.Range(0,10),1 , Random.Range(0, 10));
+            if(enemy.tag == "Platform")
+            {
+                enemy.transform.position = new Vector3(Random.Range(-2, 2), (float)-0.1, Random.Range(-2, 2));
+            }
+            else
+            {
+                enemy.transform.position = new Vector3(Random.Range(1, 10), 1, Random.Range(1, 10));
+            }
             enemy.SetActive(true);
             //And now we wait
             yield return new WaitForSeconds(interval);
@@ -95,6 +107,28 @@ public class TimerScoreControl : MonoBehaviour
     {
         scores= scores +10;
         DisplayScore();
+    }
+
+    public void UpdateMoreScore()
+    {
+        scores = scores + 50;
+        DisplayScore();
+        ShowBonusEffect();
+    }
+
+    public void ShowBonusEffect()
+    {
+        var tempColor = bonusText.color;
+        damageDecrease = 1.0f;
+        tempColor.a = damageDecrease;
+        bonusText.color = tempColor;
+    }
+
+    public void UpdateBonusEffect()
+    {
+        var tempColor = bonusText.color;
+        tempColor.a = damageDecrease;
+        bonusText.color = tempColor;
     }
 
     public void DisplayScore()
@@ -121,6 +155,20 @@ public class TimerScoreControl : MonoBehaviour
             }
 
             return;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (bonusText.color.a <= 0)
+        {
+            return;
+        }
+        else
+        {
+            damageDecrease -= damageRate * Time.deltaTime;
+            Debug.Log("check bonus text status");
+            UpdateBonusEffect();
         }
     }
 
