@@ -9,13 +9,16 @@ public class TouchBonus : MonoBehaviour
     [SerializeField]
     private GameObject ownSound;
 
-    private void OnCollisionEnter(Collision collision)
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == "Player")
+        if(other.transform.tag =="Player")
         {
             Instantiate(ownSound, transform.position, Quaternion.LookRotation(transform.position));
             AddMoreScore.Raise();
             TimerScoreControl.Instance.ReturnToPool(gameObject);
         }
     }
+
 }

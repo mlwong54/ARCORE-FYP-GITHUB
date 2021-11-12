@@ -22,7 +22,6 @@ public class EnemyBehaviour : MonoBehaviour
     private void OnEnable()
     {
         currentHP = data.enemyHealth;
-        Debug.Log("Restore HP" + currentHP);
     }
 
     public void Damage(float damageValue)

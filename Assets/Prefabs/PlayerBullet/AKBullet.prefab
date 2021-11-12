@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4b9cf6e3fe9b9cf428af4b4ec6abe333, type: 2}
+  - {fileID: 2100000, guid: 1c7cda6f11592b244a45556ea06c817b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,8 +113,6 @@ MonoBehaviour:
   AddHealthEvent: {fileID: 11400000, guid: 69db162f491fa46448b0ade2fa9e3394, type: 2}
   AddAmmoEvent: {fileID: 11400000, guid: e23d60c3374d39e4282f522b2073677e, type: 2}
   PlayBonusSound: {fileID: 11400000, guid: 79e87898faa686d428afdd491296c360, type: 2}
-  decalHitWall: {fileID: 0}
-  floatInfrontOfWall: 0
   muzzleEffect: {fileID: 3123075737211501182, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
     type: 3}
   ignoreLayer:

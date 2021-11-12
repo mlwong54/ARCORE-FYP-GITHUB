@@ -41,7 +41,6 @@ public class EnemyBullet : MonoBehaviour
 		{
 			if (hit.transform.tag == "Player")
 			{
-				Debug.Log("hit Player!");
 				hit.transform.GetComponent<DamageReceiver>().SendDamage(bulletDamage);
 				Destroy(gameObject);
 			}

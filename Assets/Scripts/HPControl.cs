@@ -89,7 +89,6 @@ public class HPControl : MonoBehaviour
         else if (playerHP.runtimeValue < 300)
         {
             playerHP.runtimeValue = playerHP.runtimeValue + addValue;
-            Debug.Log("received health :" + addValue);
             SetPositiveHealth(addValue, playerHP.runtimeValue);
         }
     }

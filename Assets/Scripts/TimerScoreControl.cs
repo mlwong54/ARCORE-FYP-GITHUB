@@ -90,7 +90,7 @@ public class TimerScoreControl : MonoBehaviour
             }
             else
             {
-                enemy.transform.position = new Vector3(Random.Range(1, 10), 1, Random.Range(1, 10));
+                enemy.transform.position = new Vector3(Random.Range(-7, 15), 1, Random.Range(-7, 15));
             }
             enemy.SetActive(true);
             //And now we wait
@@ -167,7 +167,6 @@ public class TimerScoreControl : MonoBehaviour
         else
         {
             damageDecrease -= damageRate * Time.deltaTime;
-            Debug.Log("check bonus text status");
             UpdateBonusEffect();
         }
     }
