@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class OnDisableItem : MonoBehaviour
 {
-    [SerializeField] private GameObject itemtoDisable;
+    [SerializeField] private GameObject[] itemsToDisable;
+    [SerializeField] private GameObject[] imageToDisable;
+    private bool onOff;
 
-    public void DisableItem()
+    public void DisableItem(int value)
     {
-        itemtoDisable.SetActive(false);
+        itemsToDisable[value].SetActive(false);
     }
 
-    public void EnableItem()
+    public void EnableItem(int value)
     {
-        itemtoDisable.SetActive(true);
+        itemsToDisable[value].SetActive(true);
+    }
+
+    public void setOnOffImage()
+    {
+        onOff = !onOff;
+    }
+
+    public void OnOffImage()
+    {
+        if(onOff ==true)
+        {
+            imageToDisable[0].SetActive(true);
+            imageToDisable[1].SetActive(false);
+        }
+        else
+        {
+            imageToDisable[0].SetActive(false);
+            imageToDisable[1].SetActive(true);
+        }
     }
 }
